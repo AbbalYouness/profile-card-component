@@ -1,0 +1,95 @@
+@import "base";
+@import "reset";
+@import "variable";
+@import "mixin";
+
+main {
+  height: 100vh;
+  background-color: var(--dark-cyan);
+  background-image: url("../images/bg-pattern-top.svg"),
+    url("../images/bg-pattern-bottom.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: auto, auto;
+  background-position: top 200% left -50%, bottom 200% right -50%;
+  @include xs {
+    background-size: 500px, 500px;
+    background-position: top -200px left -315px, bottom -200px right -315px;
+  }
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px -3px rgba(45, 50, 72, 0.55);
+  .card-bg {
+    background-image: url("../images/bg-pattern-card.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 150px;
+    min-width: 350px;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    img {
+      --img-height: 100px;
+      border-radius: 50%;
+      border: 5px solid white;
+      height: var(--img-height);
+      position: relative;
+      top: calc(var(--img-height) / -2);
+      margin-bottom: calc((var(--img-height) / -2) + 1rem);
+    }
+    h1 {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--very-dark-desaturated-blue);
+      margin-bottom: 0.7rem;
+      span {
+        font-size: 1rem;
+        font-weight: normal;
+        color: var(--dark-grayish-blue);
+      }
+    }
+    p {
+      font-size: 0.8rem;
+      color: var(--dark-grayish-blue);
+    }
+  }
+  .card-separator {
+    border: 0;
+    border-top: 1px solid var(--dark-gray);
+    margin-bottom: 1rem;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-evenly;
+    .card-footer-data {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+      h2 {
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--very-dark-desaturated-blue);
+        margin-bottom: 0.2rem;
+      }
+      p {
+        font-size: 0.65rem;
+        letter-spacing: 0.12rem;
+        color: var(--dark-grayish-blue);
+      }
+    }
+  }
+}
